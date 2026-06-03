@@ -1,4 +1,4 @@
-﻿[Unit]
+[Unit]
 Description=JARVIS OS Driver Manager
 Documentation=https://github.com/jarvis-os
 After=jarvis-hal.service

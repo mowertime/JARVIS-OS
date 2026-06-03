@@ -1,4 +1,4 @@
-﻿[Unit]
+[Unit]
 Description=JARVIS OS System Target
 Documentation=https://github.com/jarvis-os
 Requires=jarvis-api.service jarvis-router.service jarvis-executor.service

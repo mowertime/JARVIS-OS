@@ -1,4 +1,4 @@
-﻿[Unit]
+[Unit]
 Description=JARVIS OS System Target
 Requires=jarvis-api.service jarvis-router.service jarvis-executor.service
 Requires=jarvis-memory.service jarvis-hal.service

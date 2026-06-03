@@ -1,4 +1,4 @@
-﻿[Unit]
+[Unit]
 Description=JARVIS OS Meta Router Service
 Documentation=https://github.com/jarvis-os
 After=jarvis-api.service

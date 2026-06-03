@@ -1,4 +1,4 @@
-﻿[Unit]
+[Unit]
 Description=JARVIS OS Web UI
 Documentation=https://github.com/jarvis-os
 After=network.target
