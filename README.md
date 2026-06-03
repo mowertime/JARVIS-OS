@@ -1,0 +1,42 @@
+[william@LServer3 ~]$ cd ~
+[william@LServer3 ~]$ rm -rf JARVIS-OS
+[william@LServer3 ~]$ git clone https://github.com/mowertime/JARVIS-OS.git
+Cloning into 'JARVIS-OS'...
+remote: Enumerating objects: 146, done.
+remote: Counting objects: 100% (146/146), done.
+remote: Compressing objects: 100% (111/111), done.
+remote: Total 146 (delta 19), reused 142 (delta 19), pack-reused 0 (from 0)
+Receiving objects: 100% (146/146), 59.38 KiB | 779.00 KiB/s, done.
+Resolving deltas: 100% (19/19), done.
+[william@LServer3 ~]$ cd JARVIS-OS
+[william@LServer3 JARVIS-OS]$ sudo bash distribution/installer/build-iso.sh
+[sudo] password for william: 
+distribution/installer/build-iso.sh: line 1: ﻿#!/bin/bash: No such file or directory
+JARVIS OS v2.0.0 ISO Builder
+[*] Preparing build directory...
+[*] Copying backend code...
+[*] Copying frontend code...
+[*] Copying shared modules...
+[*] Copying systemd services...
+[*] Copying HAL and managers...
+[*] Creating JARVIS config...
+[*] Copying ISO profile...
+
+========================================
+  Building JARVIS OS ISO...
+========================================
+
+[mkarchiso] INFO: Validating options...
+[mkarchiso] ERROR: Packages file '/tmp/jarvis-iso-build-11548/packages.x86_64' does not exist.
+[mkarchiso] WARNING: The 'bios.syslinux.mbr' boot mode is deprecated. Use 'bios.syslinux' instead.
+[mkarchiso] ERROR: Validating 'bios.syslinux.mbr': The 'syslinux' package is missing from the package list!
+[mkarchiso] INFO: Validating 'bios.syslinux.mbr': 'memtest86+' is not in the package list. Memmory testing will not be available from syslinux.
+[mkarchiso] WARNING: The 'bios.syslinux.eltorito' boot mode is deprecated. Use 'bios.syslinux' instead.
+[mkarchiso] WARNING: The 'uefi-ia32.systemd-boot.esp' boot mode is deprecated. Use 'uefi.systemd-boot' instead.
+[mkarchiso] INFO: 'edk2-shell' is not in the package list. The ISO will not contain a bootable UEFI shell.
+[mkarchiso] INFO: Validating 'uefi-ia32.systemd-boot.esp': 'memtest86+-efi' is not in the package list. Memory testing will not be available from the UEFI boot loader.
+[mkarchiso] WARNING: The 'uefi-x64.systemd-boot.esp' boot mode is deprecated. Use 'uefi.systemd-boot' instead.
+[mkarchiso] WARNING: The 'uefi-ia32.systemd-boot.eltorito' boot mode is deprecated. Use 'uefi.systemd-boot' instead.
+[mkarchiso] WARNING: The 'uefi-x64.systemd-boot.eltorito' boot mode is deprecated. Use 'uefi.systemd-boot' instead.
+[mkarchiso] ERROR: 2 errors were encountered while validating the profile. Aborting.
+[william@LServer3 JARVIS-OS]$ 
