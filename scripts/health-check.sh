@@ -16,10 +16,10 @@ check_endpoint() {
     local result=$(curl -s -o /dev/null -w "%{http_code}" --max-time $TIMEOUT $url 2>/dev/null || echo "000")
     
     if [ "$result" = "200" ]; then
-        echo -e "${GREEN}✓${NC} $name ($result)"
+        echo -e "${GREEN}???${NC} $name ($result)"
         return 0
     else
-        echo -e "${RED}✗${NC} $name ($result)"
+        echo -e "${RED}???${NC} $name ($result)"
         return 1
     fi
 }
@@ -38,9 +38,9 @@ if command -v systemctl &>/dev/null; then
     echo "Service Status:"
     for service in jarvis-api jarvis-router jarvis-executor jarvis-memory jarvis-voice jarvis-ui; do
         if systemctl is-active --quiet $service 2>/dev/null; then
-            echo -e "  ${GREEN}●${NC} $service"
+            echo -e "  ${GREEN}???${NC} $service"
         else
-            echo -e "  ${RED}○${NC} $service"
+            echo -e "  ${RED}???${NC} $service"
             ((errors++))
         fi
     done
@@ -49,9 +49,9 @@ fi
 # Check Ollama
 echo ""
 if curl -s http://localhost:11434/api/tags --max-time 2 &>/dev/null; then
-    echo -e "  ${GREEN}✓${NC} Ollama running"
+    echo -e "  ${GREEN}???${NC} Ollama running"
 else
-    echo -e "  ${RED}✗${NC} Ollama not running"
+    echo -e "  ${RED}???${NC} Ollama not running"
     ((errors++))
 fi
 
@@ -59,7 +59,7 @@ fi
 echo ""
 mem_info=$(curl -s "$API_URL/v1/health" --max-time 2 2>/dev/null)
 if [ -n "$mem_info" ]; then
-    echo -e "  ${GREEN}✓${NC} API responds"
+    echo -e "  ${GREEN}???${NC} API responds"
 fi
 
 echo ""

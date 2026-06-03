@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 iso_name="jarvis-os"
 iso_label="JARVIS_OS_$(date +%Y%m)"
 iso_publisher="JARVIS OS"

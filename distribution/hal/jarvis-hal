@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 echo '{"service": "jarvis-hal", "status": "running", "version": "2.0.0"}'
 

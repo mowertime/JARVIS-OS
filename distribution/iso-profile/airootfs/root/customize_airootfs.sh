@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 echo "JARVIS OS v2.0.0 - Customizing AI root filesystem"

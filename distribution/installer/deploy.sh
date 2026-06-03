@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 echo "JARVIS OS Deploy Script v2.0.0"
 echo "Usage: deploy.sh [dev|staging|prod]"

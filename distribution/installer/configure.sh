@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 echo "JARVIS OS Configuration Script"
 if [ ! -f /etc/jarvis/jarvis.conf ]; then
