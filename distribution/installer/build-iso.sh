@@ -74,8 +74,8 @@ cp "$PROFILE_DIR/packages.x86_64" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/efiboot" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/syslinux" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/grub" "$WORK_DIR/"
-cp "$PROFILE_DIR/airootfs/root/customize_airootfs.sh" "$WORK_DIR/airootfs/root/"
-chmod +x "$WORK_DIR/airootfs/root/customize_airootfs.sh"
+cp -r "$PROFILE_DIR/airootfs/." "$WORK_DIR/airootfs/"
+chmod +x "$WORK_DIR/airootfs/root/customize_airootfs.sh" 2>/dev/null || true
 
 echo ""
 echo -e "${CYAN}========================================${NC}"
