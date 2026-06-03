@@ -17,7 +17,6 @@ efibootmgr
 elinks
 exfatprogs
 f2fs-tools
-fdisk
 gawk
 gcc-libs
 gettext
@@ -54,7 +53,6 @@ pciutils
 ppl
 procps-ng
 psmisc
-reiserfsprogs
 rsync
 sed
 shadow
@@ -89,7 +87,7 @@ python-setuptools
 python-wheel
 alsa-utils
 pulseaudio
-espeak
+espeak-ng
 fwupd
 dmidecode
 hwinfo
