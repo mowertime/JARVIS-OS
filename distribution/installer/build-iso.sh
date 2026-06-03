@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 VERSION="2.0.0"
@@ -70,6 +70,7 @@ CONFEOF
 echo -e "${YELLOW}[*] Copying ISO profile...${NC}"
 cp "$PROFILE_DIR/pacman.conf" "$WORK_DIR/"
 cp "$PROFILE_DIR/profiledef.sh" "$WORK_DIR/"
+cp "$PROFILE_DIR/packages.x86_64" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/efiboot" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/syslinux" "$WORK_DIR/"
 cp -r "$PROFILE_DIR/grub" "$WORK_DIR/"
