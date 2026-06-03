@@ -1,0 +1,41 @@
+﻿#!/bin/bash
+set -euo pipefail
+echo '{"service": "jarvis-hal", "status": "running", "version": "2.0.0"}'
+
+cpu_info() {
+    echo "{\"type\":\"cpu\",\"data\":{"
+    echo "\"vendor\":\"$(grep -m1 vendor_id /proc/cpuinfo 2>/dev/null|cut -d: -f2|xargs)\","
+    echo "\"model\":\"$(grep -m1 'model name' /proc/cpuinfo 2>/dev/null|cut -d: -f2|xargs)\","
+    echo "\"cores\":$(nproc 2>/dev/null||echo 0),"
+    echo "\"threads\":$(grep -c processor /proc/cpuinfo 2>/dev/null||echo 0),"
+    echo "\"arch\":\"$(uname -m 2>/dev/null||echo unknown)\""
+    echo "}}"
+}
+
+gpu_info() {
+    echo "{\"type\":\"gpu\",\"data\":["
+    lspci 2>/dev/null|grep -i 'vga\|3d\|display'|while IFS= read -r line; do
+        echo "{\"device\":\"$(echo "$line"|cut -d: -f3|xargs)\"}"
+    done|paste -sd,
+    echo "]}"
+}
+
+memory_info() {
+    echo "{\"type\":\"memory\",\"data\":{"
+    echo "\"total_kb\":$(grep MemTotal /proc/meminfo 2>/dev/null|awk '{print $2}'||echo 0),"
+    echo "\"free_kb\":$(grep MemFree /proc/meminfo 2>/dev/null|awk '{print $2}'||echo 0)"
+    echo "}}"
+}
+
+network_info() {
+    echo "{\"type\":\"network\",\"data\":["
+    for iface in /sys/class/net/*; do
+        [ -d "$iface" ] || continue
+        name=$(basename "$iface"); [ "$name" = "lo" ] && continue
+        echo "{\"interface\":\"$name\",\"address\":\"$(cat "$iface"/address 2>/dev/null||echo '')\",\"state\":\"$(cat "$iface"/operstate 2>/dev/null||echo '')\"}"
+    done|paste -sd,
+    echo "]}"
+}
+
+cpu_info; sleep 0.1; gpu_info; sleep 0.1; memory_info; sleep 0.1; network_info
+while true; do sleep 60; memory_info; done

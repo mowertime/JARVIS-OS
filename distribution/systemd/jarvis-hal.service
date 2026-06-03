@@ -1,0 +1,16 @@
+﻿[Unit]
+Description=JARVIS OS Hardware Abstraction Layer
+Documentation=https://github.com/jarvis-os
+After=syslog.target
+Before=jarvis-driver-manager.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/lib/jarvis/jarvis-hal
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=jarvis.target

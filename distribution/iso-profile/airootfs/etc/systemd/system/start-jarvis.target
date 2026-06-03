@@ -1,0 +1,9 @@
+﻿[Unit]
+Description=JARVIS OS System Target
+Requires=jarvis-api.service jarvis-router.service jarvis-executor.service
+Requires=jarvis-memory.service jarvis-hal.service
+Wants=jarvis-voice.service jarvis-ui.service jarvis-driver-manager.service
+After=network.target multi-user.target
+
+[Install]
+WantedBy=multi-user.target

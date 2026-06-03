@@ -1,0 +1,21 @@
+﻿[Unit]
+Description=JARVIS OS API Service
+Documentation=https://github.com/jarvis-os
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=jarvis
+Group=jarvis
+WorkingDirectory=/opt/jarvis/backend
+EnvironmentFile=-/etc/jarvis/jarvis.conf
+Environment=PYTHONPATH=/opt/jarvis/backend:/opt/jarvis/shared
+ExecStart=/usr/bin/python -m app.main
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Install]
+WantedBy=jarvis.target

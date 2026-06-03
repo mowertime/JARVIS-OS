@@ -1,0 +1,17 @@
+﻿[Unit]
+Description=JARVIS OS Execution Engine
+Documentation=https://github.com/jarvis-os
+After=jarvis-api.service
+BindsTo=jarvis-api.service
+
+[Service]
+Type=simple
+User=jarvis
+Group=jarvis
+WorkingDirectory=/opt/jarvis/backend
+ExecStart=/usr/bin/python -m app.executor.engine
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=jarvis.target
