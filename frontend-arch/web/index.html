@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS OS - Interface</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header id="header">
+            <div id="status-indicator" class="status-idle"></div>
+            <h1>JARVIS OS</h1>
+            <span id="connection-status">Disconnected</span>
+            <button id="settings-btn" title="Settings">⚙</button>
+        </header>
+        
+        <main id="chat-container">
+            <div id="messages"></div>
+        </main>
+        
+        <footer id="input-area">
+            <button id="voice-btn" title="Voice Input (Hey Jarvis)">🎤</button>
+            <input type="text" id="text-input" placeholder="Type a command or message..." autofocus>
+            <button id="send-btn" title="Send">➤</button>
+        </footer>
+    </div>
+    
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <div class="setting-group">
+                <label>Windows Node IP:</label>
+                <input type="text" id="node-ip" placeholder="192.168.1.100:8000">
+            </div>
+            <div class="setting-group">
+                <label>Session ID:</label>
+                <span id="session-id-display"></span>
+            </div>
+            <button id="save-settings">Save</button>
+        </div>
+    </div>
+    
+    <script src="js/session.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
