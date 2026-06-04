@@ -39,6 +39,7 @@ net.ipv4.tcp_fastopen=3
 EOF
 
 # Configure limits
+mkdir -p /etc/security/limits.d
 cat > /etc/security/limits.d/99-jarvis.conf << 'EOF'
 jarvis soft nofile 65535
 jarvis hard nofile 65535
