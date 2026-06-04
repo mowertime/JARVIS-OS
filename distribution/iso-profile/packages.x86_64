@@ -34,6 +34,7 @@ less
 linux-lts
 logrotate
 lvm2
+mkinitcpio
 man-db
 man-pages
 mdadm
@@ -68,12 +69,14 @@ util-linux
 vim
 which
 xfsprogs
-xorg
+xorg-server
+xorg-xrandr
 xorg-xinit
 zstd
 
 # Networking
 dhcpcd
+iptables
 dnsmasq
 iwd
 wpa_supplicant
